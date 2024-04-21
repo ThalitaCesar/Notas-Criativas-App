@@ -25,7 +25,7 @@ const DeletePost: React.FC<DeletePostProps> = ({ onClose, note }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center ">
+    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
       <div className="bg-white dark:bg-gray-600 p-4 rounded-md relative">
         <button
           onClick={onClose}

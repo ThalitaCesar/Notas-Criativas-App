@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
-
 import { api } from "~/trpc/react";
 
 interface CreateNoteProps {
@@ -46,7 +45,7 @@ export function CreateNote({ onClose }: CreateNoteProps) {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             maxLength={392}
-            className="w-[270px] rounded-full px-4 py-2 text-black border-yellow-200 border-2 dark:bg-gray-600 dark:text-white outline-none focus:border-yellow-300"
+            className="w-[270px] rounded-md px-4 py-2 text-black border-yellow-200 border-2 dark:bg-gray-600 dark:text-white outline-none resize-none focus:border-yellow-300"
           />
           <button
             type="submit"

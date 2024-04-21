@@ -47,8 +47,8 @@ const EditNote: React.FC<EditNoteProps> = ({ onClose, note }) => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             maxLength={1000} // Defina um limite adequado de caracteres
-            className="w-[270px] h-[200px] rounded-md px-4 py-2 text-black border border-gray-300 focus:border-yellow-300 outline-none resize-none"
-          />
+            className="w-[270px] rounded-md px-4 py-2 text-black border-yellow-200 border-2 dark:bg-gray-600 dark:text-white outline-none resize-none focus:border-yellow-300"
+         />
           <button
             type="submit"
             className="rounded-full px-10 py-3 font-semibold transition bg-yellow-200 hover:bg-yellow-300"
