@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-
 import { CiEdit, CiTrash } from 'react-icons/ci';
 import manImage from '../../assets/man.jpg';
 import Image from 'next/image';
