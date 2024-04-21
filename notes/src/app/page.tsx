@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   console.log('latestPostPromise:', latestPostPromise);
 
   return (
-    <div>
+    <div className='bg-white dark:bg-gray-600 min-h-[100vh] max-h[100%]'>
       <HomePage latestPostPromise={latestPostPromise} />
     </div>
   );

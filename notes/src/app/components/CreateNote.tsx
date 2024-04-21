@@ -28,11 +28,11 @@ export function CreateNote({ onClose }: CreateNoteProps) {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-      <div className="bg-white p-4 rounded-md relative">
+    <div className="fixed inset-0 flex items-center justify-center  bg-gray-900 bg-opacity-50">
+      <div className="bg-white dark:bg-gray-600 p-4 rounded-md relative">
         <button
           onClick={onClose}
-          className="absolute top-0 right-0 p-2 text-gray-600 hover:text-black"
+          className="absolute top-0 right-0 p-2 text-gray-600 hover:text-black dark:text-white"
         >
           <IoCloseCircleOutline size={24} />
         </button>
@@ -45,8 +45,8 @@ export function CreateNote({ onClose }: CreateNoteProps) {
             placeholder="Escreva aqui sua nota..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            maxLength={197}
-            className="w-[270px] rounded-full px-4 py-2 text-black border-yellow-200 border-2 outline-none focus:border-yellow-300"
+            maxLength={392}
+            className="w-[270px] rounded-full px-4 py-2 text-black border-yellow-200 border-2 dark:bg-gray-600 dark:text-white outline-none focus:border-yellow-300"
           />
           <button
             type="submit"

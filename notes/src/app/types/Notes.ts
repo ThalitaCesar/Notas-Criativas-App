@@ -4,7 +4,4 @@ export interface Note {
     createdAt: Date;
     updatedAt: Date;
   }
-
-export interface NoteCardProps {
-    note: Note;
-  }
+  
