@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import NotesCards from '../components/NotesCards';
 import EditNote from '../components/EditNote';
 import DeleteNote from '../components/DeleteNote';
-import { Note } from '../types/Notes';
+import type { Note } from '../types/Notes'; 
 import { CreateNote } from '../components/CreateNote';
 import { DarkModeSwitch } from '../components/DarkModeSwitch';
 

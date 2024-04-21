@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { Note } from '../types/Notes';
+import type { Note } from '../types/Notes'; 
 import NoteCard from './NoteCard';
 
 interface NotesCardsProps {

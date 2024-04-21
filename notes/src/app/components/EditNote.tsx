@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from "next/navigation";
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { api } from '~/trpc/react';
-import { Note } from '../types/Notes';
+import type { Note } from '../types/Notes'; 
 
 interface EditNoteProps {
   onClose: () => void;
