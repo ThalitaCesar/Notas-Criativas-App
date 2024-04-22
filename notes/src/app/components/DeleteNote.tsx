@@ -13,10 +13,14 @@ interface DeletePostProps {
 const DeletePost: React.FC<DeletePostProps> = ({ onClose, note }) => {
    const router = useRouter();
 
-  const deletePost = api.post.remove.useMutation({
+   const deletePost = api.post.remove.useMutation({
     onSuccess: () => {
       onClose();
       router.refresh();
+    },
+    onError: (error) => {
+      alert('Erro. Não foi possível apagar essa nota. Tente novamente.');
+      console.log(error)
     },
   });
 

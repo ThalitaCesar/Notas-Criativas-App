@@ -11,6 +11,9 @@ interface CreateNoteProps {
 export function CreateNote({ onClose }: CreateNoteProps) {
   const router = useRouter();
   const [content, setContent] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
+  const remainingChars = 392 - content.length;
 
   const createPost = api.post.create.useMutation({
     onSuccess: () => {
@@ -18,11 +21,19 @@ export function CreateNote({ onClose }: CreateNoteProps) {
       setContent("");
       onClose();
     },
+    onError: (error) => {
+      alert('Erro. Não foi possível criar essa nota. Tente novamente.');
+      console.log(error)
+    },
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formattedContent = content.replace(/\n/g, "<br>");
+    if (!content.trim()) {
+      setError('Por favor, insira algum conteúdo na nota.');
+      return;
+    }
+    const formattedContent = content.replace(/\n/g, '<br>');
     createPost.mutate({ name: formattedContent });
   };
 
@@ -47,6 +58,8 @@ export function CreateNote({ onClose }: CreateNoteProps) {
             maxLength={392}
             className="w-[270px] rounded-md px-4 py-2 text-black border-yellow-200 border-2 dark:bg-gray-600 dark:text-white outline-none resize-none focus:border-yellow-300"
           />
+           <p className="text-sm text-gray-400 text-end">[{remainingChars}]</p>
+           {error && <p className="text-red-500 dark:text-red-300 text-sm p-2">{error}</p>}
           <button
             type="submit"
             className="rounded-full px-10 py-3 font-semibold transition bg-yellow-200 hover:bg-yellow-300"
