@@ -149,5 +149,10 @@ npm run dev
 ```
 
 ## Screenshots
+![Captura de Tela (6)](https://github.com/ThalitaCesar/notes-app/assets/83131771/11fbc351-c594-41c1-8905-f4da774329fe)
+![Captura de Tela (5)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9e3a745a-a9fc-4549-b530-4a6df9275b39)
+![Captura de Tela (4)](https://github.com/ThalitaCesar/notes-app/assets/83131771/a5d9ec7b-d5d2-4250-a1b2-266ad825acfe)
+![Captura de Tela (3)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9a37d557-59b0-484b-98a2-a6e5ae5ff204)
+![Captura de Tela (2)](https://github.com/ThalitaCesar/notes-app/assets/83131771/56b51b07-bc32-4413-b162-3b9d933cd809)
 
 
