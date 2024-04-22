@@ -27,7 +27,7 @@ To run this project, ensure you have the following installed:
 
 This project is a simple note CRUD website called Notas Criativas, built using the Create T3 Stack. The purpose is to create a notes app where users can view, edit, and delete notes. Notas Criativas is a project built with Next.js, Prisma and SQLite for local database storage. The project includes various dependencies such as React, Tailwind CSS, and TypeScript.
 
-## Requirements
+## 📝  Requirements
 
 - [Node.js](https://nodejs.org/en/) (version 20)
 - [SQLite](https://www.sqlite.org/download.html) (for database storage)
@@ -168,7 +168,7 @@ This project is a simple note CRUD website called Notas Criativas, built using t
 npm run dev
 ```
 
-## Using the API
+## 📌 Using the API
 
 To utilize the API for the Notas Criativas project, you can interact with the defined tRPC routes provided by the `postRouter` instance. Below are the available operations:
 
