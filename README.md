@@ -10,23 +10,14 @@
 
 
 
-<h2 align="Notas Criativas</h2>
 
 # 📌 Overview
 
-This project is a simple note CRUD website Full Stack called Notas Criativas, built using the Create T3 Stack. The purpose is to create a notes app where users can view, edit, and delete notes. Notas Criativas is a project built with Next.js, Prisma and SQLite for local database storage. The project includes various dependencies such as React, Tailwind CSS, and TypeScript. 
+This project represents Part 3, which involves practical application. It is part of the evaluation process for the Qavi full stack developer position.
 
-### A bonus feature in the app is the option for dark mode.
+The knowledge test consists of two parts: Part 1 focuses on conceptual understanding of HTML, CSS, JavaScript, and TypeScript, while Part 2 covers comprehension of the T3 Stack. You can find more details and access the test document at the following link: [Test Document](https://docs.google.com/document/d/13mWBmKOCnRXp6Ay8MAviyDJkNrZlTnWL2O4VcyLyE_w/edit?usp=sharing).
 
-## Requirements
-
-To run this project, ensure you have the following installed:
-
-<h2 align="Notas Criativas</h2>
-
-# 📌 Overview
-
-This project is a simple note CRUD website called Notas Criativas, built using the Create T3 Stack. The purpose is to create a notes app where users can view, edit, and delete notes. Notas Criativas is a project built with Next.js, Prisma and SQLite for local database storage. The project includes various dependencies such as React, Tailwind CSS, and TypeScript.
+This project is a simple note CRUD website Full Stack called Notas Criativas, built using the Create T3 Stack. The purpose is to create a notes app where users can create, view, edit, and delete notes. Notas Criativas is a project built with Next.js end Tailwind in Frontend, end Prisma with SQLite for local database storage in Backend. A bunus feature in the app is the option for dark mode.
 
 ## 📝  Requirements
 
@@ -165,9 +156,9 @@ This project is a simple note CRUD website called Notas Criativas, built using t
    npx prisma migrate dev
    ```
 4. **Start the development mode:**
-```bash
-npm run dev
-```
+    ```bash
+    npm run dev
+    ```
 
 ## 📌 Using the API
 
@@ -175,68 +166,41 @@ To utilize the API for the Notas Criativas project, you can interact with the de
 
 ### 1. `hello`
 
-This route returns a greeting message based on the provided text.
-
-- **Request:**
-  - `text` (string): Text to include in the greeting.
-
-- **Response:**
-  - `greeting` (string): The generated greeting message.
-
-**Example:**
-```javascript
-import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
-
-export const postRouter = createTRPCRouter({
-  hello: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      };
-    }),
-});
-
-```
+This route returns a greeting message based on the provided text. 
 
 ### 2. create
 This route creates a new post.
 
 - **Request:**
-  - name (string): Name of the post to be created.
+  -  name (string): Name of the post to be created.
 -  **Response:**
- - id (number): ID of the newly created post.
+    -  id (number): ID of the newly created post.
    
-**Example:**
+**Example in Frontend:**
 ```javascript
-create: publicProcedure
-  .input(z.object({ name: z.string().min(1) }))
-  .mutation(async ({ ctx, input }) => {
-    // Simulate a slow database call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    return ctx.db.post.create({
-      data: {
-        name: input.name,
-      },
-    });
-  }),
+const createPost = api.post.create.useMutation({
+    onSuccess: () => {
+      router.refresh();
+      setContent("");
+      onClose();
+    },
+    onError: (error) => {
+      alert('Erro. Não foi possível criar essa nota. Tente novamente.');
+      console.log(error)
+    },
+  });
 ```
 
 ### 3. getAll
 Retrieves all existing posts.
 
 - **Request:**
-    - Array of post objects.
-**Example:**
+  - Array of post objects.
+      
+**Example in Frontend:**
 
 ```javascript
-getAll: publicProcedure.query(async ({ ctx }) => {
-  const posts = await ctx.db.post.findMany({
-    orderBy: { createdAt: 'desc' }, 
-  });
-  return posts;
+const latestPostPromise = api.post.getAll();
 }),
 ```
 
@@ -251,16 +215,16 @@ Updates the name of an existing post.
 **Example:**
 
 ```javascript 
-update: publicProcedure
-  .input(z.object({ id: z.number(), name: z.string().min(1) }))
-  .mutation(async ({ ctx, input }) => {
-    const { id, name } = input;
-    const updatedPost = await ctx.db.post.update({
-      where: { id },
-      data: { name },
-    });
-    return updatedPost;
-  }),
+const updatePost = api.post.update.useMutation({
+    onSuccess: () => {
+      onClose();
+      router.refresh();
+    },
+    onError: (error) => {
+        alert('Erro. Não foi possível editar essa nota. Tente novamente.');
+        console.log(error)
+      },
+  });
 ```
 
 ### 5. remove
@@ -270,26 +234,29 @@ Removes an existing post based on the provided ID.
     - id (number): ID of the post to be removed.
 -  **Response:**
     - id (number): ID of the removed post.
-**Example:**
+**Example in Frontend:**
 
 ```javascript
-remove: publicProcedure
-  .input(z.object({ id: z.number() }))
-  .mutation(async ({ ctx, input }) => {
-    const { id } = input;
-    const deletedPost = await ctx.db.post.delete({
-      where: { id },
-    });
-    return deletedPost;
-  }),
+const deletePost = api.post.remove.useMutation({
+    onSuccess: () => {
+      onClose();
+      router.refresh();
+    },
+    onError: (error) => {
+      alert('Erro. Não foi possível apagar essa nota. Tente novamente.');
+      console.log(error)
+    },
+  });
 ```
 
-## Screenshots
+##  :camera: Screenshots
 ![Captura de Tela (2)](https://github.com/ThalitaCesar/notes-app/assets/83131771/56b51b07-bc32-4413-b162-3b9d933cd809)
+### Dark Theme
 ![Captura de Tela (3)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9a37d557-59b0-484b-98a2-a6e5ae5ff204)
 ![Captura de Tela (4)](https://github.com/ThalitaCesar/notes-app/assets/83131771/a5d9ec7b-d5d2-4250-a1b2-266ad825acfe)
 ![Captura de Tela (5)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9e3a745a-a9fc-4549-b530-4a6df9275b39)
 ![Captura de Tela (6)](https://github.com/ThalitaCesar/notes-app/assets/83131771/11fbc351-c594-41c1-8905-f4da774329fe)
+## Responsive layout
 ![Captura de Tela (7)](https://github.com/ThalitaCesar/notes-app/assets/83131771/42d59f08-6203-4b34-8cc3-46e7f8dc1335)
 ![Captura de Tela (8)](https://github.com/ThalitaCesar/notes-app/assets/83131771/cfe26145-1b26-4301-97bb-f60f012ac58a)
 
