@@ -89,13 +89,9 @@ To run this project, ensure you have the following installed:
 ## 📝 Project Summary
 
 - [**.next**]: Contains Next.js build artifacts and configuration.
-- [**.vercel**]: Vercel deployment configuration and metadata.
 - [**node_modules**]: Node.js dependencies installed by npm or yarn.
 - [**prisma**]: Prisma configuration and database setup.
-- [**prisma\migrations**]: Prisma database migrations.
-- [**prisma\db.sqlite**]: SQLite database file managed by Prisma.
 - [**prisma\schema.prisma**]: Prisma schema definition file.
-- [**public**]: Publicly accessible assets like images and favicon.
 - [**src**]: Source code directory for the project.
 - [**src\app**]: Application-specific code and components.
 - [**src\app\api\trpc\[trpc]**]: tRPC API routes and configurations.
@@ -108,18 +104,9 @@ To run this project, ensure you have the following installed:
 - [**src\server**]: Server-side code for backend logic.
 - [**src\server\api**]: API endpoints and routers.
 - [**src\server\api\routers**]: Specific API routers.
-- [**src\server\db.ts**]: Database connection and queries.
 - [**src\styles**]: Stylesheets and global CSS.
-- [**src\trpc**]: tRPC configuration for server and client.
-- [**src\env.js**]: Environment configuration file.
 - [**.env** and **.env.example**]: Environment variable configuration.
-- [**.eslintrc.cjs** and **.gitignore**]: ESLint configuration and Git ignore rules.
-- [**next-env.d.ts** and **next.config.js**]: Next.js environment declarations and configuration.
-- [**package-lock.json** and **package.json**]: Node.js package manager files.
-- [**postcss.config.cjs** and **prettier.config.js**]: PostCSS and Prettier configuration.
 - [**tailwind.config.ts**]: Tailwind CSS configuration.
-- [**tsconfig.json**]: TypeScript configuration file.
-- [**vercel.json**]: Vercel deployment configuration.
 
 
 ## ⚙️ Setting Up
@@ -149,10 +136,14 @@ npm run dev
 ```
 
 ## Screenshots
-![Captura de Tela (6)](https://github.com/ThalitaCesar/notes-app/assets/83131771/11fbc351-c594-41c1-8905-f4da774329fe)
-![Captura de Tela (5)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9e3a745a-a9fc-4549-b530-4a6df9275b39)
-![Captura de Tela (4)](https://github.com/ThalitaCesar/notes-app/assets/83131771/a5d9ec7b-d5d2-4250-a1b2-266ad825acfe)
-![Captura de Tela (3)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9a37d557-59b0-484b-98a2-a6e5ae5ff204)
 ![Captura de Tela (2)](https://github.com/ThalitaCesar/notes-app/assets/83131771/56b51b07-bc32-4413-b162-3b9d933cd809)
+![Captura de Tela (3)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9a37d557-59b0-484b-98a2-a6e5ae5ff204)
+![Captura de Tela (4)](https://github.com/ThalitaCesar/notes-app/assets/83131771/a5d9ec7b-d5d2-4250-a1b2-266ad825acfe)
+![Captura de Tela (5)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9e3a745a-a9fc-4549-b530-4a6df9275b39)
+![Captura de Tela (6)](https://github.com/ThalitaCesar/notes-app/assets/83131771/11fbc351-c594-41c1-8905-f4da774329fe)
+
+
+
+
 
 
