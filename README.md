@@ -1,16 +1,6 @@
+
+
 <h2 align="Notas Criativas</h2>
-
-# 📌 Overview
-
-This project is a simple note CRUD website called Notas Criativas, built using the Create T3 Stack. The purpose is to create a notes app where users can view, edit, and delete notes. Notas Criativas is a project built with Next.js, Prisma and SQLite for local database storage. The project includes various dependencies such as React, Tailwind CSS, and TypeScript.
-
-## Requirements
-
-To run this project, ensure you have the following installed:
-
-
-
-  <h2 align="Notas Criativas</h2>
 
 # 📌 Overview
 
