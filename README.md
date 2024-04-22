@@ -9,6 +9,7 @@
 
 
 
+
 <h2 align="Notas Criativas</h2>
 
 # 📌 Overview
@@ -160,9 +161,8 @@ npm run dev
 ![Captura de Tela (4)](https://github.com/ThalitaCesar/notes-app/assets/83131771/a5d9ec7b-d5d2-4250-a1b2-266ad825acfe)
 ![Captura de Tela (5)](https://github.com/ThalitaCesar/notes-app/assets/83131771/9e3a745a-a9fc-4549-b530-4a6df9275b39)
 ![Captura de Tela (6)](https://github.com/ThalitaCesar/notes-app/assets/83131771/11fbc351-c594-41c1-8905-f4da774329fe)
-
-
-
+![Captura de Tela (7)](https://github.com/ThalitaCesar/notes-app/assets/83131771/42d59f08-6203-4b34-8cc3-46e7f8dc1335)
+![Captura de Tela (8)](https://github.com/ThalitaCesar/notes-app/assets/83131771/cfe26145-1b26-4301-97bb-f60f012ac58a)
 
 
 
