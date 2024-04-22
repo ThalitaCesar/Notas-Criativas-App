@@ -70,7 +70,7 @@ const HomePage: React.FC<HomePageProps> = ({ latestPostPromise }) => {
           <NotesCards notes={latestPosts} onEdit={handleEditNote} onDelete={handleDeleteNote} /> 
         ) : (
           <div className='h-[100vh] w-full flex justify-center items-center'>
-          <p className=''>Você ainda não tem nenhuma nota.</p>
+          <p className='dark:text-yellow-200'>Você ainda não tem nenhuma nota. 🧐</p>
           </div>
         )}
       </div>
