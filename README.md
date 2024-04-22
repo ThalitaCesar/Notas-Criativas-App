@@ -13,9 +13,10 @@
 
 # 📌 Overview
 
+This project represents Part 3, which involves practical application. It is part of the evaluation process for the Qavi full stack developer position.
+
 The knowledge test consists of two parts: Part 1 focuses on conceptual understanding of HTML, CSS, JavaScript, and TypeScript, while Part 2 covers comprehension of the T3 Stack. You can find more details and access the test document at the following link: [Test Document](https://docs.google.com/document/d/13mWBmKOCnRXp6Ay8MAviyDJkNrZlTnWL2O4VcyLyE_w/edit?usp=sharing).
 
-This project represents Part 3, which involves practical application. It is part of the evaluation process for the Qavi full stack developer position.
 This project is a simple note CRUD website Full Stack called Notas Criativas, built using the Create T3 Stack. The purpose is to create a notes app where users can create, view, edit, and delete notes. Notas Criativas is a project built with Next.js end Tailwind in Frontend, end Prisma with SQLite for local database storage in Backend. A bunus feature in the app is the option for dark mode.
 
 ## 📝  Requirements
