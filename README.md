@@ -108,26 +108,38 @@ This project is a simple note CRUD website called Notas Criativas, built using t
 ```
 
 ## 📝 Project Summary
-
 - [**.next**]: Contains Next.js build artifacts and configuration.
+- [**.vercel**]: Vercel deployment configuration and metadata.
 - [**node_modules**]: Node.js dependencies installed by npm or yarn.
 - [**prisma**]: Prisma configuration and database setup.
-- [**prisma\schema.prisma**]: Prisma schema definition file.
+  - [**prisma\migrations**]: Prisma database migrations.
+  - [**prisma\db.sqlite**]: SQLite database file managed by Prisma.
+  - [**prisma\schema.prisma**]: Prisma schema definition file.
+- [**public**]: Publicly accessible assets like images and favicon.
 - [**src**]: Source code directory for the project.
-- [**src\app**]: Application-specific code and components.
-- [**src\app\api\trpc\[trpc]**]: tRPC API routes and configurations.
-- [**src\app\components**]: Reusable React components.
-- [**src\app\pages**]: React pages for different views.
-- [**src\app\types**]: TypeScript type definitions.
-- [**src\app\layout.tsx**]: Main layout component.
-- [**src\app\page.tsx**]: Base page component.
-- [**src\assets**]: Project assets like images and fonts.
-- [**src\server**]: Server-side code for backend logic.
-- [**src\server\api**]: API endpoints and routers.
-- [**src\server\api\routers**]: Specific API routers.
-- [**src\styles**]: Stylesheets and global CSS.
+  - [**src\app**]: Application-specific code and components.
+    - [**src\app\api\trpc\[trpc]**]: tRPC API routes and configurations.
+    - [**src\app\components**]: Reusable React components.
+    - [**src\app\pages**]: React pages for different views.
+    - [**src\app\types**]: TypeScript type definitions.
+    - [**src\app\layout.tsx**]: Main layout component.
+    - [**src\app\page.tsx**]: Base page component.
+  - [**src\assets**]: Project assets like images and fonts.
+  - [**src\server**]: Server-side code for backend logic.
+    - [**src\server\api**]: API endpoints and routers.
+      - [**src\server\api\routers**]: Specific API routers.
+    - [**src\server\db.ts**]: Database connection and queries.
+  - [**src\styles**]: Stylesheets and global CSS.
+- [**src\trpc**]: tRPC configuration for server and client.
+- [**src\env.js**]: Environment configuration file.
 - [**.env** and **.env.example**]: Environment variable configuration.
+- [**.eslintrc.cjs** and **.gitignore**]: ESLint configuration and Git ignore rules.
+- [**next-env.d.ts** and **next.config.js**]: Next.js environment declarations and configuration.
+- [**package-lock.json** and **package.json**]: Node.js package manager files.
+- [**postcss.config.cjs** and **prettier.config.js**]: PostCSS and Prettier configuration.
 - [**tailwind.config.ts**]: Tailwind CSS configuration.
+- [**tsconfig.json**]: TypeScript configuration file.
+- [**vercel.json**]: Vercel deployment configuration.
 
 
 ## ⚙️ Setting Up
@@ -154,6 +166,121 @@ This project is a simple note CRUD website called Notas Criativas, built using t
 4. **Start the development mode:**
 ```bash
 npm run dev
+```
+
+## Using the API
+
+To utilize the API for the Notas Criativas project, you can interact with the defined tRPC routes provided by the `postRouter` instance. Below are the available operations:
+
+### 1. `hello`
+
+This route returns a greeting message based on the provided text.
+
+- **Request:**
+  - `text` (string): Text to include in the greeting.
+
+- **Response:**
+  - `greeting` (string): The generated greeting message.
+
+**Example:**
+```javascript
+import { z } from "zod";
+import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+
+export const postRouter = createTRPCRouter({
+  hello: publicProcedure
+    .input(z.object({ text: z.string() }))
+    .query(({ input }) => {
+      return {
+        greeting: `Hello ${input.text}`,
+      };
+    }),
+});
+
+```
+
+### 2. create
+This route creates a new post.
+
+- **Request:**
+  - name (string): Name of the post to be created.
+-  **Response:**
+ - id (number): ID of the newly created post.
+   
+**Example:**
+```javascript
+create: publicProcedure
+  .input(z.object({ name: z.string().min(1) }))
+  .mutation(async ({ ctx, input }) => {
+    // Simulate a slow database call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    return ctx.db.post.create({
+      data: {
+        name: input.name,
+      },
+    });
+  }),
+```
+
+### 3. getAll
+Retrieves all existing posts.
+
+- **Request:**
+    - Array of post objects.
+**Example:**
+
+```javascript
+getAll: publicProcedure.query(async ({ ctx }) => {
+  const posts = await ctx.db.post.findMany({
+    orderBy: { createdAt: 'desc' }, 
+  });
+  return posts;
+}),
+```
+
+### 4. update
+Updates the name of an existing post.
+
+- **Request:**
+    - id (number): ID of the post to be updated.
+    - name (string): New name for the post.
+-  **Response:**
+    - id (number): ID of the updated post.
+**Example:**
+
+```javascript 
+update: publicProcedure
+  .input(z.object({ id: z.number(), name: z.string().min(1) }))
+  .mutation(async ({ ctx, input }) => {
+    const { id, name } = input;
+    const updatedPost = await ctx.db.post.update({
+      where: { id },
+      data: { name },
+    });
+    return updatedPost;
+  }),
+```
+
+### 5. remove
+Removes an existing post based on the provided ID.
+
+- **Request:**
+    - id (number): ID of the post to be removed.
+-  **Response:**
+    - id (number): ID of the removed post.
+**Example:**
+
+```javascript
+remove: publicProcedure
+  .input(z.object({ id: z.number() }))
+  .mutation(async ({ ctx, input }) => {
+    const { id } = input;
+    const deletedPost = await ctx.db.post.delete({
+      where: { id },
+    });
+    return deletedPost;
+  }),
 ```
 
 ## Screenshots
